@@ -3,3 +3,5 @@ notas.txt
 *.out
 obj/
 build/
+.cache
+*.json
