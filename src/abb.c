@@ -350,4 +350,3 @@ int ABB_Obtener_ID_Por_Posicion(posicion P)
 	}
 	return P->sala.id;
 }
-
