@@ -6,7 +6,7 @@
 3|Biblioteca|Estantes repletos de libros antiguos.|TESORO|Pocima de vida menor|-|N|2,5,8
 4|Armeria|Un yunque rodeado de armamento.|TESORO|Espada ignea|-|N|2,6,8
 5|Cueva helada|Estalactitas cubren el techo.|COMBATE|Escudo de opalo|Slime de hielo|N|3,7,9
-6|Cascada eterna|El agua fluye en contra del frio.|NORMAL|-||-|N|4,7
+6|Cascada eterna|El agua fluye en contra del frio.|NORMAL|-|-|N|4,7
 7|Camara final|Un guardian helado protege una sala con llave.|COMBATE|-|Golem de nieve|N|5,6,8,99
 8|Fuente congelada|Agua congelada desde hace cientos de anios.|TESORO|Aro carmesi|-|N|3,4,7
 9|Estanque lozano|La fuente de vida de la mazmorra.|NORMAL|-|-|N|5

@@ -29,7 +29,7 @@
 sala Crear_Sala(int id, char* nombre, char* descripcion, char* tipo,
 				char* tesoro, char* enemigo, char oculta, lista vecinas)
 {
-	sala S = {id, NULL, NULL, NULL, NULL, NULL, oculta, NULL};
+	sala S = {id, NULL, NULL, NULL, NULL, NULL, oculta, 0};
 
 	S.nombre = malloc(strlen(nombre) + 1);
 	if(S.nombre == NULL)
@@ -114,6 +114,7 @@ void Imprimir_Sala(sala S)
 	printf("	- Enemigo: %s\n", S.enemigo);
 	printf("	- Oculta: %c\n", S.oculta);
 	printf(" - Vecinas: %d\n", S.vecinas);
+	printf("------------------------------------\n");
 }
 
 /**

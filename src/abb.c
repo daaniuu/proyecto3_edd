@@ -17,9 +17,10 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/types.h>
 
 //==============================================================================
-//        FUNCIONES DE INSERCIÓN
+//        FUNCIONES DE INICIALIZACION
 //==============================================================================
 
 /**
@@ -80,6 +81,110 @@ arbol_de_busqueda ABB_Insertar_Nodo(sala S, arbol_de_busqueda T)
 		return T;
 	}
 }
+
+/**
+ * @brief Carga en el ABB los datos de "mazmorra.txt"
+ *
+ * Si no se encuentra exactamente una sala de tipo INICIO, se indica error y
+ * termina el programa.
+ * Si se encuentran salas con IDs repetidos, se conserva unicamente la
+ * primera sala cargada.
+ * Si no hay memoria para un nodo, se libera la memoria asignada y termina el
+ * programa.
+ * Si la sala es inválida (al menos un miembro string en
+ * NULL, es decir, un Crear_Sala fallido) se imprime "Error" y el árbol queda
+ * intacto.
+ *
+ * @param S Sala a insertar
+ * @param T ABB donde se debe insertar la sala
+ * @return arbol_de_busqueda Referencia al ABB con la sala insertada
+ */
+arbol_de_busqueda ABB_Cargar_Habitaciones_Visibles(arbol_de_busqueda T)
+{
+	FILE* archivo;
+	int leer;
+	int cont_salas = 0;
+	char caracter;
+	//char string[10];
+
+	// Variables para grabar los valores leidos de mazmorras.txt, y luego copiar en una sala individual.
+	int id_sala;
+	char nombre_sala[21];
+	char descripcion_sala[50];
+	char tipo_sala[11];
+	char tesoro_sala[50];
+	char enemigo_sala[50];
+	char oculta_sala;
+
+	archivo = fopen("mazmorra.txt", "r");
+	if(archivo == NULL)
+	{
+		printf("Error de ABB_Cargar_Arbol: No se pudo abrir mazmorra.txt\n");
+		return T;
+	}
+
+	// Saltar las lineas de formato
+	for(int i = 0; i < 3; i++)
+	{
+		do 
+		{
+			caracter = fgetc(archivo);
+		}
+		while(caracter != '\n');
+	}
+
+	/*caracter = fgetc(archivo);
+	fseek(archivo, -1, SEEK_CUR);
+	fgets(string, 10, archivo);
+	printf("%s", string);*/
+
+	while((caracter = fgetc(archivo)) != '#')
+	{
+		fseek(archivo, -1, SEEK_CUR);
+		printf("oliwi\n");
+		leer = fscanf(archivo, "%d|%20[^|]|%49[^|]|%10[^|]|%49[^|]|%49[^|]|%c", &id_sala, nombre_sala, descripcion_sala, 
+								tipo_sala, tesoro_sala, enemigo_sala, &oculta_sala);
+		printf("%d\n", leer);
+		if(leer == 7)
+		{
+			cont_salas++;
+		}
+		if(leer != 7 && !feof(archivo))
+		{
+			printf("Error de arbol_de_busqueda: Formato de archivo incorrecto\n");
+			return T;
+		}
+		if(ferror(archivo))
+		{
+			printf("Error de arbol_de_busqueda: Error al leer el archivo\n");
+			return T;
+		}
+
+		T = ABB_Insertar_Nodo(Crear_Sala(id_sala, nombre_sala, descripcion_sala, tipo_sala, 
+			tesoro_sala, enemigo_sala, oculta_sala, 0), T);
+
+		// Mover el cursor hasta la siguiente linea
+		do 
+		{
+			caracter = fgetc(archivo);
+		}
+		while(caracter != '\n');
+	}
+
+	printf("%d salas cargadas.\n", cont_salas);
+
+	printf("Debug:\n");
+	ABB_Imprimir_Inorder(T);
+
+	fclose(archivo);
+
+	return T;
+}
+
+/*arbol_de_busqueda ABB_Cargar_Pasillos(arbol_de_busqueda T)
+{
+
+}*/
 
 //==============================================================================
 //        FUNCIONES DE BÚSQUEDA
@@ -224,7 +329,8 @@ void ABB_Imprimir_Inorder(arbol_de_busqueda T)
 		return;
 	}
 	ABB_Imprimir_Inorder(T->izquierdo);
-	printf("%s, [%d]\n", T->sala.nombre, T->sala.id);
+	//printf("%s, [%d]\n", T->sala.nombre, T->sala.id);
+	Imprimir_Sala(T->sala);
 	ABB_Imprimir_Inorder(T->derecho);
 }
 

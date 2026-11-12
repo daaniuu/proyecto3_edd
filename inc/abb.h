@@ -31,6 +31,7 @@ struct nodo
 //        FUNCIONES DE INSERCIÓN
 //==============================================================================
 arbol_de_busqueda ABB_Insertar_Nodo(sala S, arbol_de_busqueda T);
+arbol_de_busqueda ABB_Cargar_Habitaciones_Visibles(arbol_de_busqueda T);
 
 //==============================================================================
 //        FUNCIONES DE BÚSQUEDA
