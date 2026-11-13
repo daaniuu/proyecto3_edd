@@ -5,3 +5,6 @@ obj/
 build/
 .cache
 *.json
+src/main.c
+src/adyacencias.c
+.gitignore

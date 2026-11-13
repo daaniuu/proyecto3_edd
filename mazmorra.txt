@@ -2,9 +2,9 @@
 # id|nombre|descripcion|tipo|tesoro|enemigo|oculta|vecinas
 # Salas visibles
 1|Entrada|Escaleras que descienden al comienzo definitivo.|INICIO|-|-|N|2
-2|Pasillo dividido|Antorchas iluminan dos pasadizos separados.|COMBATE|Frasco de veneno|Murcielagos|N|3,4
+2|Pasillo dividido|Antorchas iluminan dos pasadizos separados.|COMBATE|Frasco de veneno|Murcielagos|N|1,3,4
 3|Biblioteca|Estantes repletos de libros antiguos.|TESORO|Pocima de vida menor|-|N|2,5,8
-4|Armeria|Un yunque rodeado de armamento.|TESORO|Espada ignea|-|N|2,6,8
+4|Armeria|Un yunque rodeado de armamento.|TESORO|Espada ignea|-|N|2,6,8,10
 5|Cueva helada|Estalactitas cubren el techo.|COMBATE|Escudo de opalo|Slime de hielo|N|3,7,9
 6|Cascada eterna|El agua fluye en contra del frio.|NORMAL|-|-|N|4,7
 7|Camara final|Un guardian helado protege una sala con llave.|COMBATE|-|Golem de nieve|N|5,6,8,99

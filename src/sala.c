@@ -27,7 +27,7 @@
  * @return S Instancia de sala.
 */
 sala Crear_Sala(int id, char* nombre, char* descripcion, char* tipo,
-				char* tesoro, char* enemigo, char oculta, lista vecinas)
+				char* tesoro, char* enemigo, char oculta, arreglo vecinas)
 {
 	sala S = {id, NULL, NULL, NULL, NULL, NULL, oculta, 0};
 

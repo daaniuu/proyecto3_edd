@@ -28,13 +28,13 @@ struct nodo
 };
 
 //==============================================================================
-//        FUNCIONES DE INSERCIÓN
+//        FUNCIONES DE INSERCION E INICIALIZACION
 //==============================================================================
 arbol_de_busqueda ABB_Insertar_Nodo(sala S, arbol_de_busqueda T);
 arbol_de_busqueda ABB_Cargar_Habitaciones_Visibles(arbol_de_busqueda T);
 
 //==============================================================================
-//        FUNCIONES DE BÚSQUEDA
+//        FUNCIONES DE BUSQUEDA
 //==============================================================================
 posicion ABB_Buscar(int id, arbol_de_busqueda T);
 posicion ABB_Buscar_Minimo(arbol_de_busqueda T);
@@ -48,7 +48,7 @@ void ABB_Imprimir_Inorder(arbol_de_busqueda T);
 void ABB_Imprimir_Postorder(arbol_de_busqueda T);
 
 //==============================================================================
-//        FUNCIONES DE ELIMINACIÓN
+//        FUNCIONES DE ELIMINACION
 //==============================================================================
 arbol_de_busqueda ABB_Borrar_Por_ID(int id, arbol_de_busqueda T);
 arbol_de_busqueda ABB_Borrar_Arbol(arbol_de_busqueda T);

@@ -83,7 +83,7 @@ arbol_de_busqueda ABB_Insertar_Nodo(sala S, arbol_de_busqueda T)
 }
 
 /**
- * @brief Carga en el ABB los datos de "mazmorra.txt"
+ * @brief Carga en el ABB las habitaciones visibles de "mazmorra.txt".
  *
  * Si no se encuentra exactamente una sala de tipo INICIO, se indica error y
  * termina el programa.
@@ -97,7 +97,7 @@ arbol_de_busqueda ABB_Insertar_Nodo(sala S, arbol_de_busqueda T)
  *
  * @param S Sala a insertar
  * @param T ABB donde se debe insertar la sala
- * @return arbol_de_busqueda Referencia al ABB con la sala insertada
+ * @return arbol_de_busqueda Referencia al ABB con la salas insertadas
  */
 arbol_de_busqueda ABB_Cargar_Habitaciones_Visibles(arbol_de_busqueda T)
 {
@@ -119,14 +119,14 @@ arbol_de_busqueda ABB_Cargar_Habitaciones_Visibles(arbol_de_busqueda T)
 	archivo = fopen("mazmorra.txt", "r");
 	if(archivo == NULL)
 	{
-		printf("Error de ABB_Cargar_Arbol: No se pudo abrir mazmorra.txt\n");
+		printf("Error de ABB_Cargar_Habitaciones_Visibles: No se pudo abrir mazmorra.txt\n");
 		return T;
 	}
 
 	// Saltar las lineas de formato
 	for(int i = 0; i < 3; i++)
 	{
-		do 
+		do
 		{
 			caracter = fgetc(archivo);
 		}
@@ -151,12 +151,12 @@ arbol_de_busqueda ABB_Cargar_Habitaciones_Visibles(arbol_de_busqueda T)
 		}
 		if(leer != 7 && !feof(archivo))
 		{
-			printf("Error de arbol_de_busqueda: Formato de archivo incorrecto\n");
+			printf("Error de ABB_Cargar_Habitaciones_Visibles: Formato de archivo incorrecto\n");
 			return T;
 		}
 		if(ferror(archivo))
 		{
-			printf("Error de arbol_de_busqueda: Error al leer el archivo\n");
+			printf("Error de ABB_Cargar_Habitaciones_Visibles: Error al leer el archivo\n");
 			return T;
 		}
 
@@ -164,7 +164,7 @@ arbol_de_busqueda ABB_Cargar_Habitaciones_Visibles(arbol_de_busqueda T)
 			tesoro_sala, enemigo_sala, oculta_sala, 0), T);
 
 		// Mover el cursor hasta la siguiente linea
-		do 
+		do
 		{
 			caracter = fgetc(archivo);
 		}
@@ -180,11 +180,6 @@ arbol_de_busqueda ABB_Cargar_Habitaciones_Visibles(arbol_de_busqueda T)
 
 	return T;
 }
-
-/*arbol_de_busqueda ABB_Cargar_Pasillos(arbol_de_busqueda T)
-{
-
-}*/
 
 //==============================================================================
 //        FUNCIONES DE BÚSQUEDA
